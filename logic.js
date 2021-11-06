@@ -2,15 +2,15 @@ let players = ['x', 'o'];
 let activePlayer = 0;
 
 
-board = [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', ''],
-];
+
 
 
 function startGame() {
-
+  board = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+  ];
   renderBoard(board);
 
 }
@@ -76,34 +76,73 @@ function checkWinner() {
 
   // по диагонале
 
-  if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
-    winner = board[0][0];
+  for (let d = 0; d < board.length; d++) {
+    for (let t = 0; t < board[d].length; t++) {
+      for (let m = 0; m < board[d][t].length; m++) {
 
+        if (board[2][m] == board[t][d] && board[t][d] == board[m][2]) {
+          winner = board[2][m];
+          // console.log("win");
+        }
+        if (winner == players[0]) {
+          console.log(winner);
+          showWinner(winner)
+        } else if (winner == players[1]) {
+          console.log(winner);
+          showWinner(winner)
+        } else {
+          console.log();
+        }
+
+
+        if (board[0][m] == board[t][d] && board[t][d] == board[t][2]) {
+          winner = board[0][m];
+          // console.log("win");
+        }
+        if (winner == players[0]) {
+          console.log(winner);
+          showWinner(winner)
+        } else if (winner == players[1]) {
+          console.log(winner);
+          showWinner(winner)
+        } else {
+          console.log();
+        }
+
+      }
+
+
+    }
   }
 
-    if (winner == players[0]) {
-    console.log(winner);
-    showWinner(winner)
-  } else if (winner == players[1]) {
-    console.log(winner);
-    showWinner(winner)
-  } else {
-    console.log();
-  }
+//   if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+//     winner = board[0][0];
 
-if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-    winner = board[0][2];
+//   }
 
-  }
-  if (winner == players[0]) {
-    console.log(winner);
-    showWinner(winner)
-  } else if (winner == players[1]) {
-    console.log(winner);
-    showWinner(winner)
-  } else {
-    console.log();
-  }
+//     if (winner == players[0]) {
+//     console.log(winner);
+//     showWinner(winner)
+//   } else if (winner == players[1]) {
+//     console.log(winner);
+//     showWinner(winner)
+//   } else {
+//     console.log();
+//   }
+
+// if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+//     winner = board[0][2];
+
+//   }
+//   if (winner == players[0]) {
+//     console.log(winner);
+//     showWinner(winner)
+//   } else if (winner == players[1]) {
+//     console.log(winner);
+//     showWinner(winner)
+//   } else {
+//     console.log();
+//   }
 
 }
 
