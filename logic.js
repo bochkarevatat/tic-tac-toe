@@ -76,45 +76,80 @@ function checkWinner() {
 
   // по диагонале
 
-  for (let d = 0; d < board.length; d++) {
-    for (let t = 0; t < board[d].length; t++) {
-      for (let m = 0; m < board[d][t].length; m++) {
-
-        if (board[2][m] == board[t][d] && board[t][d] == board[m][2]) {
-          winner = board[2][m];
-          // console.log("win");
-        }
-        if (winner == players[0]) {
-          console.log(winner);
-          showWinner(winner)
-        } else if (winner == players[1]) {
-          console.log(winner);
-          showWinner(winner)
-        } else {
-          console.log();
-        }
-
-
-        if (board[0][m] == board[t][d] && board[t][d] == board[t][2]) {
-          winner = board[0][m];
-          // console.log("win");
-        }
-        if (winner == players[0]) {
-          console.log(winner);
-          showWinner(winner)
-        } else if (winner == players[1]) {
-          console.log(winner);
-          showWinner(winner)
-        } else {
-          console.log();
-        }
-
-      }
-
-
-    }
+  let n = board.length;
+  if (board[0][0] == board[(n - 1) - 1][(n - 1) - 1] && board[(n - 1) - 1][(n - 1) - 1] == board[n - 1][n - 1]) {
+    winner = board[0][0];
   }
 
+  if (board[n - 1][0] == board[(n - 1) - 1][(n - 1) - 1] && board[(n - 1) - 1][(n - 1) - 1] == board[0][n - 1]) {
+    winner = board[n - 1][0];
+  }
+  if (winner == players[0]) {
+    console.log(winner);
+    showWinner(winner)
+  } else if (winner == players[1]) {
+    console.log(winner);
+    showWinner(winner)
+  } else {
+    console.log();
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// вариант 2, вылазит баг
+
+  // for (let d = 0; d < board.length; d++) {
+  //   for (let t = 0; t < board[d].length; t++) {
+  //     for (let m = 0; m < board[d][t].length; m++) {
+
+  //       if (board[2][m] == board[t][d] && board[t][d] == board[m][2]) {
+  //         winner = board[2][m];
+  //         // console.log("win");
+  //       }
+  //       if (winner == players[0]) {
+  //         console.log(winner);
+  //         showWinner(winner)
+  //       } else if (winner == players[1]) {
+  //         console.log(winner);
+  //         showWinner(winner)
+  //       } else {
+  //         console.log();
+  //       }
+
+
+  //       if (board[0][m] == board[t][d] && board[t][d] == board[t][2]) {
+  //         winner = board[0][m];
+  //         // console.log("win");
+  //       }
+  //       if (winner == players[0]) {
+  //         console.log(winner);
+  //         showWinner(winner)
+  //       } else if (winner == players[1]) {
+  //         console.log(winner);
+  //         showWinner(winner)
+  //       } else {
+  //         console.log();
+  //       }
+
+  //     }
+
+
+  //   }
+  // }
+
+  // вариант №1, не универсальный
 //   if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
 //     winner = board[0][0];
 
@@ -143,10 +178,3 @@ function checkWinner() {
 //   } else {
 //     console.log();
 //   }
-
-}
-
-
-
-
-
